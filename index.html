@@ -3,95 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AguaSensor: monitoreo inteligente del nivel de agua en tanques aéreos.">
-  <title>AguaSensor | Control inteligente del agua</title>
+  <meta name="description" content="AguaSensor: monitoreo inteligente del nivel de agua en tanques.">
+  <title>AguaSensor | Monitoreo inteligente del agua</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="AguaSensor, inicio">
-      <span class="brand-mark">💧</span><span>Agua<span class="brand-light">Sensor</span></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-    <nav class="nav" id="mainNav">
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#contacto" class="nav-cta">Contacto</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="brand" href="#inicio"><span class="brand-mark">💧</span><span>Agua<span class="brand-light">Sensor</span></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <nav class="nav" id="mainNav">
+    <a href="#funcionamiento">Cómo funciona</a><a href="#simulador">Simulador</a><a href="#planes">Planes</a><a href="#contacto" class="nav-cta">Solicitar demo</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-copy">
-        <p class="eyebrow">MONITOREO INTELIGENTE</p>
-        <h1>Controla el nivel de agua de tu tanque, en todo momento.</h1>
-        <p class="lead">AguaSensor permite conocer el nivel de agua de un tanque aéreo para apoyar un abastecimiento más eficiente y seguro.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#como-funciona">Conocer el sistema</a>
-          <a class="button button-secondary" href="#contacto">Más información</a>
-        </div>
-        <div class="mini-points">
-          <span>✓ Monitoreo del nivel</span><span>✓ Alertas configurables</span><span>✓ Fácil visualización</span>
-        </div>
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">CONTROL INTELIGENTE DEL AGUA</p>
+      <h1>Cuida el agua de tu establecimiento con AguaSensor.</h1>
+      <p class="lead">Monitorea el nivel de tus tanques, recibe alertas por WhatsApp y toma decisiones a tiempo, sin tener que revisar el tanque manualmente.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#contacto">Solicitar demostración</a>
+        <a class="button button-secondary" href="#funcionamiento">Conocer cómo funciona</a>
       </div>
-      <div class="hero-visual">
-        <img src="referencia-sensor.png" alt="Infografía del sensor de nivel de agua instalado en un tanque aéreo">
-        <p class="image-caption">Esquema ilustrativo del sensor y su funcionamiento.</p>
-      </div>
-    </section>
+      <div class="mini-points"><span>✓ Lecturas periódicas</span><span>✓ Alertas por WhatsApp</span><span>✓ Soporte local</span></div>
+    </div>
+    <div class="hero-visual">
+      <img src="referencia-sensor.png" alt="Sensor de nivel de agua instalado en un tanque aéreo">
+      <p class="image-caption">Ilustración del sensor de nivel de agua para tanque aéreo.</p>
+    </div>
+  </section>
 
-    <section class="section" id="beneficios">
-      <div class="section-heading">
-        <p class="eyebrow">¿QUÉ APORTA?</p>
-        <h2>Una forma más clara de cuidar el agua</h2>
-        <p>Consulta el estado del tanque y toma decisiones oportunas según la configuración del sistema.</p>
-      </div>
-      <div class="benefit-grid">
-        <article class="benefit-card"><div class="icon">◉</div><h3>Monitoreo</h3><p>Conoce el nivel de agua sin tener que revisar el tanque manualmente.</p></article>
-        <article class="benefit-card"><div class="icon">⚙</div><h3>Mayor eficiencia</h3><p>Ayuda a identificar cuándo el tanque necesita abastecimiento.</p></article>
-        <article class="benefit-card"><div class="icon">盾</div><h3>Más seguridad</h3><p>Permite configurar avisos para apoyar la prevención de desbordamientos o falta de agua.</p></article>
-      </div>
-    </section>
+  <section class="section" id="beneficios">
+    <div class="section-heading"><p class="eyebrow">BENEFICIOS</p><h2>Más control, menos preocupaciones</h2><p>Información clara para ayudar a cuidar el abastecimiento de agua de tu operación.</p></div>
+    <div class="benefit-grid">
+      <article class="benefit-card"><div class="icon">◉</div><h3>Monitoreo del nivel</h3><p>Consulta cuánto agua hay disponible en el tanque.</p></article>
+      <article class="benefit-card"><div class="icon">⚙</div><h3>Mayor eficiencia</h3><p>Identifica cuándo necesitas abastecer y observa cambios en el consumo.</p></article>
+      <article class="benefit-card"><div class="icon">✓</div><h3>Alertas oportunas</h3><p>Recibe avisos cuando el nivel llega al umbral configurado.</p></article>
+    </div>
+  </section>
 
-    <section class="how-section" id="como-funciona">
-      <div class="how-copy">
-        <p class="eyebrow">ASÍ TRABAJA</p>
-        <h2>¿Cómo funciona AguaSensor?</h2>
-        <p>El sensor mide el nivel del agua y transmite la información a un sistema de control o monitoreo compatible.</p>
-        <ol class="steps">
-          <li><span>1</span><div><h3>Detecta el nivel</h3><p>El sensor realiza la medición dentro del tanque.</p></div></li>
-          <li><span>2</span><div><h3>Procesa la información</h3><p>El sistema convierte la medición en un dato que puede interpretarse.</p></div></li>
-          <li><span>3</span><div><h3>Envía los datos</h3><p>La información llega al sistema de control o monitoreo.</p></div></li>
-          <li><span>4</span><div><h3>Permite actuar</h3><p>Se puede visualizar el nivel y generar alertas según la configuración.</p></div></li>
-        </ol>
+  <section class="how-demo-section" id="funcionamiento">
+    <div class="how-demo-copy">
+      <p class="eyebrow">ASÍ TRABAJA</p>
+      <h2>¿Cómo funciona AguaSensor?</h2>
+      <p class="how-intro">El sensor mide el nivel del agua y transmite la información a un sistema de control o monitoreo compatible.</p>
+      <ol class="how-steps">
+        <li><span>1</span><div><h3>Detecta el nivel</h3><p>El sensor realiza la medición dentro del tanque.</p></div></li>
+        <li><span>2</span><div><h3>Procesa la información</h3><p>El sistema convierte la medición en un dato que puede interpretarse.</p></div></li>
+        <li><span>3</span><div><h3>Envía los datos</h3><p>La información llega al sistema de control o monitoreo.</p></div></li>
+        <li><span>4</span><div><h3>Permite actuar</h3><p>Se puede visualizar el nivel y generar alertas según la configuración.</p></div></li>
+      </ol>
+    </div>
+    <article class="tank-demo-card" id="simulador">
+      <div class="tank-demo-top"><span>VISTA DEMOSTRATIVA</span><i aria-label="Simulación activa"></i></div>
+      <h3>Nivel del tanque</h3>
+      <div class="tank-visual" aria-label="Ilustración del nivel de agua">
+        <div class="tank-water" id="tankWater"></div>
+        <strong id="levelPercent">65%</strong>
       </div>
-      <aside class="level-card">
-        <div class="level-card-top"><span>VISTA DEMOSTRATIVA</span><span class="live-dot"></span></div>
-        <h3>Nivel del tanque</h3>
-        <div class="tank">
-          <div class="water" id="waterFill"></div>
-          <div class="tank-label" id="tankLabel">65%</div>
-        </div>
-        <input id="levelSlider" type="range" min="0" max="100" value="65" aria-label="Cambiar nivel de agua de demostración">
-        <div class="range-labels"><span>Vacío</span><span>Lleno</span></div>
-        <p class="demo-note">Simulación visual: mueve el control para cambiar el nivel mostrado. No mide un tanque real.</p>
-      </aside>
-    </section>
+      <input id="levelSlider" type="range" min="0" max="100" value="65" aria-label="Cambiar nivel de agua de demostración">
+      <div class="tank-range-labels"><span>Vacío</span><span>Lleno</span></div>
+      <p class="demo-note">Simulación visual: mueve el control para cambiar el nivel mostrado. No mide un tanque real.</p>
+    </article>
+  </section>
 
-    <section class="contact-section" id="contacto">
-      <div>
-        <p class="eyebrow">AGUASENSOR</p>
-        <h2>Control inteligente del agua, en todo momento.</h2>
-        <p>Conoce más sobre el proyecto y sus posibilidades de implementación.</p>
-      </div>
-      <a class="button button-white" href="mailto:contacto@aguasensor.com">Escribir un correo</a>
-    </section>
-  </main>
+  <section class="plans-section" id="planes">
+    <div class="section-heading"><p class="eyebrow">MODELO DE SUSCRIPCIÓN ACCESIBLE</p><h2>Planes diseñados para proteger tu operación</h2><p>Según la propuesta, el hardware se entrega en alquiler con garantía, soporte y mantenimiento preventivo incluido.</p></div>
+    <div class="plans-grid">
+      <article class="plan-card plan-featured"><span class="plan-tag">Más elegido</span><h3>Suscripción Básica</h3><p>Ideal para hostales, edificios y fincas</p><div class="price">$45.000 <small>COP/mes</small></div><p class="setup-price">Instalación única: $80.000–$120.000</p><ul><li>Sensor ultrasónico IP65 en alquiler</li><li>Alertas por WhatsApp</li><li>Acceso al panel web</li><li>Solicitud de carrotanques aliados</li><li>Mantenimiento preventivo semestral</li></ul><button class="button button-primary plan-action" data-plan="Suscripción Básica">Contratar plan básico</button></article>
+      <article class="plan-card"><h3>Plan Plus</h3><p>Para hoteles, clínicas y conjuntos grandes</p><div class="price">$70.000 <small>COP/mes</small></div><p class="setup-price">Instalación única: $80.000–$120.000</p><ul><li>Todo lo incluido en Básico</li><li>Detección de fugas y consumo anormal</li><li>Reportes semanales y mensuales</li><li>Múltiples usuarios</li><li>Opción 4G/GSM</li></ul><button class="button button-secondary plan-action" data-plan="Plan Plus">Solicitar plan Plus</button></article>
+      <article class="plan-card"><h3>Compra de equipo</h3><p>Para clientes que prefieren propiedad del activo</p><div class="price">$280.000–$350.000</div><p class="setup-price">Pago único por dispositivo instalado</p><ul><li>Sensor AguaSensor IP65 calibrado</li><li>Batería de respaldo</li><li>Garantía técnica de 12 meses</li><li>Suscripción opcional a plataforma y alertas</li></ul><button class="button button-secondary plan-action" data-plan="Compra de equipo">Cotizar equipo</button></article>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <a class="brand footer-brand" href="#inicio"><span class="brand-mark">💧</span><span>Agua<span class="brand-light">Sensor</span></span></a>
-    <p>© <span id="year"></span> AguaSensor. Proyecto demostrativo.</p>
-  </footer>
-  <script src="script.js"></script>
+  <section class="request-section" id="contacto">
+    <div class="request-card">
+      <div class="request-heading"><h2>Solicita tu demostración o piloto de 30 días</h2><p>Déjanos tus datos y se abre WhatsApp con tu solicitud lista para enviar. Instalación y soporte: <strong>310 658 9313 · 305 226 1783</strong>.</p></div>
+      <form id="whatsappForm" class="request-form">
+        <label>Nombre y apellido<input name="nombre" type="text" placeholder="Ej. Carlos Mendoza" required></label>
+        <label>Establecimiento / edificio<input name="establecimiento" type="text" placeholder="Ej. Hostal Brisas del Rodadero" required></label>
+        <label>WhatsApp de contacto<input name="whatsapp" type="tel" placeholder="Ej. 300 123 4567" required></label>
+        <label>Sector / ubicación<select name="sector" id="sectorSelect"><option>El Rodadero / Gaira</option><option>Centro Histórico / Pescaíto</option><option>Taganga</option><option>Minca / Zona Rural</option><option>Bello Horizonte / Pozos Colorados</option><option value="Otro">Otro (escribir dirección)</option></select></label>
+        <label class="other-address" id="otherAddressWrap" hidden>Escribe la dirección<input name="otraDireccion" id="otherAddress" type="text" placeholder="Barrio, dirección o referencia"></label>
+        <label class="full-field">Cantidad de tanques y capacidad aproximada<input name="tanques" type="text" placeholder="Ej. 1 cisterna subterránea de 10.000 L y 1 tanque elevado de 2.000 L" required></label>
+        <button class="button button-dark full-field" type="submit">Enviar solicitud por WhatsApp</button>
+        <p class="form-note full-field">Se abrirá WhatsApp con tu solicitud. Podrás elegir a cuál de nuestros dos números enviarla.</p>
+      </form>
+      <div class="contact-options"><a href="https://wa.me/573106589313" target="_blank" rel="noopener">WhatsApp 310 658 9313</a><a href="https://wa.me/573052261783" target="_blank" rel="noopener">WhatsApp 305 226 1783</a></div>
+    </div>
+  </section>
+</main>
+
+<a class="whatsapp-float" href="#contacto">Solicitar por WhatsApp</a>
+<footer class="footer"><a class="brand footer-brand" href="#inicio"><span class="brand-mark">💧</span><span>Agua<span class="brand-light">Sensor</span></span></a><p>© <span id="year"></span> AguaSensor. Proyecto demostrativo.</p></footer>
+<script src="script.js"></script>
 </body>
 </html>
