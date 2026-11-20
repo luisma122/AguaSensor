@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AguaSensor: monitoreo inteligente del nivel de agua y alertas por WhatsApp en Santa Marta.">
+  <title>AguaSensor | Monitoreo inteligente de agua</title>
+  <style>
+    :root{--navy:#09283f;--blue:#087eaa;--cyan:#18b6c9;--pale:#eaf8fb;--ink:#183447;--muted:#617786;--white:#fff;--line:#d9e8ee;--green:#15966b}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f7fbfc;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+    header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}.brand{font-size:1.35rem;font-weight:800;color:var(--navy)}.brand span{color:var(--cyan)}
+    nav{display:flex;gap:20px;align-items:center;font-size:.92rem;color:#345365}nav a:hover{color:var(--blue)}
+    .btn{display:inline-block;background:var(--blue);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;border:0;cursor:pointer}.btn:hover{background:var(--navy)}.btn.alt{background:#e5f6f9;color:var(--navy)}
+    .hero{background:linear-gradient(130deg,#082b45,#075b7a 65%,#0b91a7);color:white;padding:78px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;color:#9beaf0}
+    h1{font-size:clamp(2.3rem,5vw,4rem);line-height:1.08;margin:14px 0 20px;letter-spacing:-.04em}.hero p{font-size:1.1rem;color:#e2f6fa;max-width:680px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.hero .btn{background:#20c4d0;color:#052b42}.hero .btn.alt{background:#ffffff18;color:white;border:1px solid #ffffff55}
+    .panel{background:#fff;color:var(--ink);border-radius:20px;padding:25px;box-shadow:0 18px 55px #001d303d}.panel-top{display:flex;justify-content:space-between;gap:10px;font-weight:700}.status{color:var(--green);font-size:.82rem}
+    .level{font-size:3rem;font-weight:800;color:var(--blue);margin:12px 0 0}.track{height:13px;background:#e5eef2;border-radius:20px;overflow:hidden;margin:10px 0}.fill{height:100%;width:28%;background:linear-gradient(90deg,#f2a93b,#e66c36);border-radius:20px}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.stat{background:#f2f8fa;padding:12px;border-radius:12px}.stat small{display:block;color:var(--muted)}.alert{background:#fff5e8;border-left:4px solid #f0a33b;border-radius:8px;padding:12px;margin-top:16px;font-size:.9rem}
+    section{padding:68px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 34px}.kicker{color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h2{font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--navy);margin:10px 0 14px}.muted{color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 7px 24px #12384d08}.num{width:38px;height:38px;display:grid;place-items:center;background:var(--pale);color:var(--blue);border-radius:12px;font-weight:800}.card h3{color:var(--navy);margin:14px 0 8px}
+    .sim{background:var(--pale)}.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}.sim-card{background:white;padding:26px;border-radius:18px;border:1px solid var(--line)}input[type=range]{width:100%;accent-color:var(--blue);margin:18px 0}.big{font-size:2.4rem;font-weight:800;color:var(--blue)}.phone{background:#e8f5ed;border-radius:18px;padding:20px;min-height:200px}.bubble{background:white;padding:15px;border-radius:14px;margin-top:12px;box-shadow:0 3px 12px #12384d0d}
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.price{font-size:1.8rem;font-weight:800;color:var(--blue);margin:12px 0}.card ul{padding-left:20px;color:var(--muted)}.featured{border:2px solid var(--cyan);position:relative}.tag{display:inline-block;background:#dff8f7;color:#087b83;padding:5px 10px;border-radius:30px;font-size:.75rem;font-weight:800}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.year{color:var(--blue);font-size:.8rem;font-weight:800}
+    .contact{background:#082b45;color:white}.contact h2{color:white}.contact .muted{color:#c4dce5}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.form{background:white;color:var(--ink);padding:24px;border-radius:18px}.form label{display:block;font-weight:700;font-size:.9rem;margin:12px 0 5px}.form input,.form textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;font:inherit}.form textarea{min-height:90px}.form button{width:100%;margin-top:16px}
+    footer{background:#061f31;color:#c3d7df;padding:25px 0;font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:850px){nav{display:none}.hero-grid,.sim-grid,.contact-grid{grid-template-columns:1fr}.steps,.roadmap{grid-template-columns:repeat(2,1fr)}.plans{grid-template-columns:1fr}}
+    @media(max-width:520px){.hero{padding:55px 0}.steps,.roadmap{grid-template-columns:1fr}section{padding:52px 0}.panel{padding:19px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#">Agua<span>Sensor</span></a>
+  <nav><a href="#como-funciona">Cómo funciona</a><a href="#simulador">Demo en vivo</a><a href="#planes">Planes</a><a href="#vision">Visión</a></nav>
+  <a class="btn" href="#contacto">Solicitar piloto</a>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div><div class="eyebrow">Tecnología IoT · Santa Marta, Caribe</div>
+    <h1>Nunca más te quedes sin agua con huéspedes o residentes.</h1>
+    <p>Instalamos un sensor ultrasónico inteligente en tu tanque elevado o cisterna. Mide el nivel cada 10 minutos y te avisa por WhatsApp antes de que se agote.</p>
+    <div class="actions"><a class="btn" href="#contacto">Agendar demostración gratuita</a><a class="btn alt" href="#simulador">Probar simulador</a></div>
+  </div>
+  <div class="panel"><div class="panel-top"><span>Panel de Monitoreo</span><span class="status">● En línea · IP65</span></div>
+    <div class="muted">Hostal Mar Azul · Tanque principal</div><div class="muted" style="margin-top:16px">Nivel actual</div>
+    <div class="level">28%</div><div class="track"><div class="fill"></div></div><div class="muted">2.800 L / 10.000 L</div>
+    <div class="stats"><div class="stat"><small>Autonomía estimada</small><b>~9 horas</b></div><div class="stat"><small>Consumo</small><b>310 L/hora</b></div></div>
+    <div class="alert">⚠️ <b>Alerta automática:</b> el tanque está al 28%. Responde 1 para solicitar carrotanque aliado o 2 para posponer.</div>
+  </div>
+</div></section>
+<section id="como-funciona"><div class="wrap"><div class="section-head"><div class="kicker">Tecnología simple y confiable</div><h2>¿Cómo funciona AguaSensor en tu establecimiento?</h2><p class="muted">Diseñado para resistir el clima costero de Santa Marta sin obras complejas ni mantenimiento costoso para el cliente.</p></div>
+  <div class="steps">
+    <article class="card"><div class="num">1</div><h3>Instalación en 90 min</h3><p class="muted">Fijamos el sensor ultrasónico impermeable, con caja sellada IP65, en la tapa del tanque y calibramos su capacidad.</p></article>
+    <article class="card"><div class="num">2</div><h3>Lectura cada 10 min</h3><p class="muted">El microcontrolador ESP32 envía el nivel a la nube por WiFi o red celular 4G.</p></article>
+    <article class="card"><div class="num">3</div><h3>Alerta por WhatsApp</h3><p class="muted">Recibes avisos cuando el nivel baja del 30%, cuando llega agua del acueducto o si se detecta consumo anormal.</p></article>
+    <article class="card"><div class="num">4</div><h3>Carrotanque en 1 clic</h3><p class="muted">Responde “1” en el chat para solicitar contacto con la red de carrotanques aliados.</p></article>
+  </div>
+</div></section>
+<section class="sim" id="simulador"><div class="wrap"><div class="section-head"><div class="kicker">Experiencia interactiva</div><h2>Simulador de tanque y alertas WhatsApp</h2><p class="muted">Mueve el control para simular el consumo o el llenado del tanque.</p></div>
+  <div class="sim-grid"><div class="sim-card"><b>Nivel simulado del tanque</b><div class="big" id="pct">28%</div><input id="range" type="range" min="0" max="100" value="28"><div class="track"><div class="fill" id="simfill"></div></div><div class="stats"><div class="stat"><small>Volumen disponible</small><b id="liters">2.800 litros</b></div><div class="stat"><small>Autonomía estimada</small><b id="hours">9 horas</b></div></div><p id="pump" class="muted">Estado de motobomba: Protegida (operativa)</p></div>
+  <div class="sim-card"><b>AS · AguaSensor Alertas</b><div class="muted">Cuenta de demostración · Simulación</div><div class="phone"><b>WhatsApp · Mensaje de ejemplo</b><div class="bubble" id="message">⚠️ Alerta de nivel bajo (28%): quedan 2.800 L (aprox. 9 horas). Responde 1 para solicitar carrotanque aliado o 2 para recordar en 2 horas.</div></div></div></div>
+</div></section>
+<section id="planes"><div class="wrap"><div class="section-head"><div class="kicker">Modelo de suscripción accesible</div><h2>Planes diseñados para proteger tu operación</h2><p class="muted">Según la propuesta, el hardware se entrega en alquiler con garantía, soporte y mantenimiento preventivo incluido.</p></div>
+  <div class="plans">
+    <article class="card featured"><span class="tag">Más elegido</span><h3>Suscripción Básica</h3><p class="muted">Ideal para hostales, edificios y fincas</p><div class="price">$45.000 <small>COP/mes</small></div><p class="muted">Instalación única: $80.000–$120.000</p><ul><li>Sensor ultrasónico IP65 en alquiler</li><li>Alertas por WhatsApp</li><li>Acceso al panel web</li><li>Solicitud de carrotanques aliados</li><li>Mantenimiento preventivo semestral</li></ul><a class="btn" href="#contacto">Contratar plan básico</a></article>
+    <article class="card"><h3>Plan Plus</h3><p class="muted">Para hoteles, clínicas y conjuntos grandes</p><div class="price">$70.000 <small>COP/mes</small></div><p class="muted">Instalación única: $80.000–$120.000</p><ul><li>Todo lo incluido en Básico</li><li>Detección de fugas y consumo anormal</li><li>Reportes semanales y mensuales</li><li>Múltiples usuarios</li><li>Opción 4G/GSM</li></ul><a class="btn alt" href="#contacto">Solicitar plan Plus</a></article>
+    <article class="card"><h3>Compra de equipo</h3><p class="muted">Para clientes que prefieren propiedad del activo</p><div class="price">$280.000–$350.000</div><p class="muted">Pago único por dispositivo instalado</p><ul><li>Sensor AguaSensor IP65 calibrado</li><li>Batería de respaldo</li><li>Garantía técnica de 12 meses</li><li>Suscripción opcional a plataforma y alertas</li></ul><a class="btn alt" href="#contacto">Cotizar equipo</a></article>
+  </div>
+</div></section>
+<section id="vision"><div class="wrap"><div class="section-head"><div class="kicker">Proyección estratégica 2026–2036</div><h2>Una trayectoria de 10 años hacia la gestión inteligente del agua en el Caribe</h2><p class="muted">La propuesta plantea iniciar en Santa Marta y crecer hacia la región Caribe, con una meta de 3.500 tanques conectados al año 10.</p></div>
+  <div class="roadmap">
+    <article class="card"><div class="year">AÑOS 1–2 · SANTA MARTA</div><h3>Validación local</h3><p class="muted">Pilotos en hoteles y edificios. Meta propuesta: 120 sensores en año 1 y 250 en año 2.</p></article>
+    <article class="card"><div class="year">AÑOS 3–5 · CARIBE</div><h3>Expansión regional</h3><p class="muted">Ingreso a Ciénaga, Barranquilla y Riohacha. Meta propuesta: 1.000 sensores al cierre del año 5.</p></article>
+    <article class="card"><div class="year">AÑOS 6–8 · PRODUCTO</div><h3>Automatización</h3><p class="muted">Proyección de control de motobombas, sensores LoRaWAN y plataforma multi-sede.</p></article>
+    <article class="card"><div class="year">AÑOS 9–10 · CONSOLIDACIÓN</div><h3>Eficiencia predictiva</h3><p class="muted">Analítica predictiva de fugas y expansión nacional. Meta propuesta: 3.500 sensores.</p></article>
+  </div>
+  <div class="card" style="margin-top:18px"><b>Compromiso con los ODS</b><p class="muted">ODS 6: agua limpia y saneamiento · ODS 11: ciudades sostenibles · ODS 8: trabajo decente.</p></div>
+</div></section>
+<section class="contact" id="contacto"><div class="wrap contact-grid"><div><div class="kicker">Hablemos de tu proyecto</div><h2>Solicita tu demostración o piloto de 30 días</h2><p class="muted">Déjanos tus datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p><p><b>Instalación y soporte</b><br>310 658 9313 · 305 226 1783</p><p class="muted">Santa Marta, Magdalena – Colombia</p></div>
+  <form class="form" id="contactForm"><h3>Solicitar información</h3>
+    <label for="name">Nombre y apellido</label><input id="name" required placeholder="Tu nombre">
+    <label for="place">Establecimiento / edificio</label><input id="place" placeholder="Nombre del establecimiento">
+    <label for="phone">WhatsApp de contacto</label><input id="phone" placeholder="Tu número">
+    <label for="sector">Sector / ubicación</label><input id="sector" placeholder="Ej. El Rodadero, Santa Marta">
+    <label for="tanks">Cantidad de tanques y capacidad aproximada</label><textarea id="tanks" placeholder="Ej. 2 tanques de 10.000 litros"></textarea>
+    <button class="btn" type="submit">Preparar solicitud por WhatsApp</button>
+    <p class="muted" style="font-size:.8rem">Este formulario abre WhatsApp; no almacena ni envía los datos a un servidor.</p>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap footer-row"><b>AguaSensor</b><span>Santa Marta, Magdalena – Colombia · Propuesta de emprendimiento IoT</span><span>© 2026 AguaSensor</span></div></footer>
+<script>
+  const range=document.getElementById('range');
+  function update(){
+    const n=Number(range.value), liters=n*100, hours=Math.round(liters/310);
+    document.getElementById('pct').textContent=n+'%';
+    document.getElementById('liters').textContent=liters.toLocaleString('es-CO')+' litros';
+    document.getElementById('hours').textContent=hours+' horas aprox.';
+    const fill=document.getElementById('simfill'); fill.style.width=n+'%';
+    fill.style.background=n<=30?'linear-gradient(90deg,#f2a93b,#e66c36)':'linear-gradient(90deg,#18b6c9,#15966b)';
+    document.getElementById('pump').textContent='Estado de motobomba: '+(n<=10?'Revisar nivel de agua': 'Protegida (operativa)');
+    document.getElementById('message').textContent=n<=30
+      ? `⚠️ Alerta de nivel bajo (${n}%): quedan ${liters.toLocaleString('es-CO')} L (aprox. ${hours} horas). Responde 1 para solicitar carrotanque aliado o 2 para recordar en 2 horas.`
+      : `✅ Nivel de agua (${n}%): quedan ${liters.toLocaleString('es-CO')} L. El nivel está por encima del umbral de alerta del 30%.`;
+  }
+  range.addEventListener('input',update);
+  document.getElementById('contactForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const msg=`Hola, quiero información sobre AguaSensor y solicitar una demostración o piloto.\\nNombre: ${v('name')}\\nEstablecimiento: ${v('place')}\\nMi WhatsApp: ${v('phone')}\\nUbicación: ${v('sector')}\\nTanques: ${v('tanks')}`;
+    window.open('https://wa.me/573106589313?text='+encodeURIComponent(msg),'_blank');
+  });
+  update();
+</script>
+</body></html>
